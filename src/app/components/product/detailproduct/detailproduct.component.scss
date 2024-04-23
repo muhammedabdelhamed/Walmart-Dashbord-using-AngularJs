@@ -1,0 +1,111 @@
+:host {
+  display: block;
+  width: 100%;
+}
+.container {
+  background-color: #1a202c;
+  color: white;
+}
+.creat {
+  background-color: #2fe5a7;
+  height: 40px;
+}
+.creat i {
+  color: black;
+}
+.plus {
+  color: black;
+}
+.input {
+  background-color: #364153;
+  color: white;
+  border: none;
+}
+img {
+  width: 300px;
+  height: 300px;
+  border-radius: 20px;
+}
+i {
+  color: #2fe5a7;
+  font-size: 20px;
+}
+.content {
+  background-color: #19191a;
+  margin-top: 8% !important;
+}
+.all-category {
+  cursor: pointer;
+}
+.review {
+  background-color: #19191a;
+}
+.user {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: white;
+}
+.user-icon {
+  color: #1a202c;
+}
+.stars {
+  font-size: 10px;
+  color: #2fe5a7;
+}
+.trach-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #ff69b43e;
+}
+.icon2 {
+  color: #ff69b4;
+}
+//===========< media query >=======================
+//===========< nav media >==========================
+@media only screen and (max-width: 938px) {
+  .hide-on-small {
+    display: none !important;
+  }
+
+  .show-on-small {
+    display: block !important;
+  }
+}
+
+@media only screen and (min-width: 938px) {
+  .hide-on-small2 {
+    display: none !important;
+  }
+
+  .show-on-small2 {
+    display: block !important;
+  }
+}
+//===========< category details media >======================
+
+@media only screen and (max-width: 870px) {
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  img {
+    width: 200px;
+    height: 200px;
+    border-radius: 20px;
+  }
+}
+//================< review media >====================
+@media only screen and (max-width: 607px) {
+  .comment {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}

@@ -1,0 +1,79 @@
+<div
+  class="d-flex flex-column flex-shrink-0 bg-dark text-white h-100 overflow-auto"
+  style="width: 4.5rem">
+  <!-- <div class="text-center my-4">
+    <img
+      src="https://github.com/mdo.png"
+      alt
+      width="50"
+      height="50"
+      class="rounded-circle me-2" />
+  </div> -->
+  <ul
+    class="nav nav-pills flex-column mb-auto text-center fw-semibold text-light">
+    <!-- Dashboard -->
+    <li>
+      <a routerLink="/" class="nav-link py-3 border-bottom fs-5"
+        routerLinkActive="activeLink" [routerLinkActiveOptions]="{exact: true}">
+        <i class="fa-solid fa-chart-pie"></i>
+      </a>
+    </li>
+    <!-- Profile -->
+    <li>
+      <a routerLink="/profile" class="nav-link py-3 border-bottom fs-5"
+        routerLinkActive="activeLink">
+        <i class="fa-solid fa-user"></i>
+      </a>
+    </li>
+    <!-- Add Admin -->
+    <li>
+      <a routerLink="/register" class="nav-link py-3 border-bottom fs-5"
+        routerLinkActive="activeLink">
+        <i class="fa-solid fa-user-plus"></i>
+      </a>
+    </li>
+    <!-- Orders -->
+    <li>
+      <a routerLink="/orders" class="nav-link py-3 border-bottom fs-5"
+        routerLinkActive="activeLink">
+        <i class="fa-solid fa-cart-flatbed"></i>
+      </a>
+    </li>
+    <!-- Categories -->
+    <li>
+      <a routerLink="/category" class="nav-link py-3 border-bottom fs-5"
+        routerLinkActive="activeLink">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="bi bi-grid-fill"
+          viewBox="0 0 16 16">
+          <path
+            d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zm8 0A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm-8 8A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm8 0A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3z" />
+        </svg>
+      </a>
+    </li>
+    <!-- SubCategories -->
+    <li>
+      <a routerLink="/subcategory" class="nav-link py-3 border-bottom fs-5"
+        routerLinkActive="activeLink">
+        <i class="fa-solid fa-network-wired"></i>
+      </a>
+    </li>
+    <!-- Products -->
+    <li>
+      <a routerLink="/product" class="nav-link py-3 border-bottom fs-5"
+        routerLinkActive="activeLink">
+        <i class="fa-solid fa-bag-shopping"></i>
+      </a>
+    </li>
+  </ul>
+  <div class="text-center fs-5 border-top" (click)="signOut()">
+    <a routerLink="/"
+      class="py-3 border-bottom link-underline link-underline-opacity-0 text-danger fw-semibold">
+      <i class="fa-solid fa-arrow-right-from-bracket mt-3"></i>
+    </a>
+  </div>
+</div>

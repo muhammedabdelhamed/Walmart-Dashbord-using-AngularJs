@@ -1,0 +1,46 @@
+.profile-card{
+    border-radius: 10px;
+    background: linear-gradient(0deg, #19191A 0%, #19191A 100%), #1A202C;
+    height: 80vh;
+    h1{
+        color: #fff;
+    }
+    form{
+        width: 100%;
+        padding: 0;
+        label{
+            color: #fff;
+        }
+        input:not([type=submit]){
+            border-radius: 10px;
+            background: #1A202C;
+            color: #fff;
+            border-color: transparent;
+        }
+        input:not([type=submit]):not(:disabled){
+            box-shadow: 0px 0px 10px 1px #65789e;
+        }
+        button{
+            position: absolute;
+            right: 5px;
+            
+        }
+        button.passCheckBtn{
+            left: 10px;
+            width: fit-content;
+            color: #1A202C;
+        }
+        input[type=submit]{
+            position: absolute;
+            left: 10px;
+        }
+        .col-3{
+            position: relative;
+            .spinner-border{
+                font-size: 8px;
+                width: 18px;
+                height: 18px;
+            }
+        }
+    }
+}

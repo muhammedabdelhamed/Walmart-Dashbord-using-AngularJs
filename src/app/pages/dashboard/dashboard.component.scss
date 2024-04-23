@@ -1,0 +1,46 @@
+.smallCard {
+  width: 22%;
+  min-width: 160px;
+  // margin: 0 1rem 0 0;
+}
+.smallCards{
+  width: 70svw;
+}
+.circle {
+  border-radius: 2.375rem;
+  width: 2em;
+  height: 2em;
+}
+
+.blueCircle {
+  background: var(--dark-version-primary, rgba(96, 92, 255, 0.3));
+  color: #605cff;
+}
+
+.greenCircle {
+  background: var(--dark-version-primary, rgba(47, 229, 167, 0.3));
+  color: #2fe5a7;
+}
+
+.redCircle {
+  background: var(--dark-version-primary, rgba(255, 105, 180, 0.3));
+  color: #ff69b4;
+}
+
+.yellowCircle {
+  background: var(--dark-version-primary, rgba(255, 186, 53, 0.3));
+  color: #ffba35;
+}
+
+@media only screen and (min-width: 10px) and (max-width: 768px) {
+  // .leftSection table.table {
+    // width: 75%;
+    // tr {
+      // display: flex;
+      // flex-direction: column;
+    // }
+  // }
+  .leftSection{
+    width: fit-content;
+  }
+}

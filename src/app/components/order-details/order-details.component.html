@@ -1,0 +1,83 @@
+<div class="row m-0 p-0 pt-3 justify-content-start align-items-top ">
+  <div class="col-12 p-3 my-0">
+    <h6 class="h5" style="color: #fff">
+      Orders
+    </h6>
+  </div>
+  <div class="col-3 my-0 p-3" >
+    <h3 class="h2" style="color: #fff">
+      <i class="fa-solid fa-user me-2 fs-5" ></i> {{order?.userId?.name}}
+    </h3>
+    <p class="lead" style="color: #fff">
+      <i class="fa-solid fa-at me-2 fs-5"></i> {{order?.userId?.email}}
+    </p>
+    <p class="lead" style="color: #fff">
+      <i class="fa-solid fa-phone me-2 fs-5"></i> {{order?.shippingAddress.phoneNumber}}
+    </p>
+  </div>
+  <div class="col-3 my-0 p-3" >
+    <h3 class="h2" style="color: #fff">
+      <i class="fa-solid fa-address-card me-2 fs-5"></i>address
+    </h3>
+    <p class="lead" style="color: #fff">
+      {{order?.shippingAddress.country}},
+      {{order?.shippingAddress.city}}
+    </p>
+    <p class="lead" style="color: #fff">
+      {{order?.shippingAddress.area}},
+      {{order?.shippingAddress.street}} st
+    </p>
+  </div>
+  <div class="col-3 my-0 p-3" >
+    <p class="lead" style="color: #fff">
+      created at: {{postDate}}
+    </p>
+    <p class="lead" style="color: #fff">
+      amonunt: {{order?.amount|currency:'EGP ':'code'}}
+    </p>
+    <p class="lead" style="color: #fff">
+      payment status: {{order?.paymentStatus}}
+    </p>
+  </div>
+  <div class="col-3 my-0 p-3" >
+    <form >
+      <div>
+        <p class="lead" style="color: #fff">
+          status: <span class="fs-6">
+          {{status}}
+        </span>
+      </p>
+      @if (order?.status != 'canceled') {
+        @if (statusEdited) {
+          <button class="btn btn-success btn-sm" (click)="toggleStatus(status)">
+            save
+          </button>
+        }
+        <button class="btn btn-sm" [ngClass]="{'btn-outline-light' :!statusEdited ,'btn-outline-danger' :statusEdited   }" (click)="editStatus()">
+          @if (!statusEdited) {
+            <i class="fa-regular fa-pen-to-square"></i>
+          }
+          @if (statusEdited) {
+            <i class="fa-solid fa-xmark"></i>
+          }
+        </button>
+      }
+
+
+    </div>
+  </form>
+  @if (order?.status != 'canceled') {
+    <button class="btn btn-danger d-block mb-2" (click)="cancelOrder()">
+      Cancel Order
+    </button>
+  }
+
+</div>
+
+
+@for (item of order?.items; track item) {
+  <div class="col-12 my-1 p-2">
+    <app-product-card-order-details [prd]="item"></app-product-card-order-details>
+  </div>
+}
+</div>

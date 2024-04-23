@@ -1,0 +1,199 @@
+<div class="container h-100">
+  <!-- nav start -->
+  <div
+    class="d-flex justify-content-between"
+    [ngClass]="{
+      'hide-on-small': isSmallScreen,
+      'show-on-small': !isSmallScreen
+    }"
+    >
+    <h3 class="mt-3 all-category" [routerLink]="['/category/category']">
+      All categories
+    </h3>
+    <div class="mt-3 d-flex justify-content-center align-items-center">
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control input"
+          placeholder="search"
+          aria-label="Recipient's username"
+          aria-describedby="button-addon2"
+          />
+        <button
+          class="btn btn-outline-secondary input"
+          type="button"
+          id="button-addon2"
+          >
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </div>
+    </div>
+    <div>
+      <button
+        type="button"
+        class="btn creat mt-3"
+        [routerLink]="['/category/newcategory']"
+        >
+        <i class="fa-solid fa-plus me-3 plus"></i>New category
+      </button>
+    </div>
+  </div>
+  <!-- collaps -->
+  <div
+    [ngClass]="{
+      'hide-on-small2': !isSmallScreen,
+      'show-on-small2': isSmallScreen
+    }"
+    >
+    <div class="mt-3 d-flex justify-content-end align-items-center">
+      <button class="btn creat">
+        <i class="fa-solid fa-bars" (click)="toggleNav()"></i>
+      </button>
+    </div>
+    @if (!flagNav) {
+      <div>
+        <div class="d-flex justify-content-end align-items-center">
+          <h3 class="mt-3 all-category" [routerLink]="['/category/category']">
+            All categories
+          </h3>
+        </div>
+        <div class="d-flex justify-content-end align-items-center">
+          <div class="input-group mb-3">
+            <input
+              type="text"
+              class="form-control input"
+              placeholder="search"
+              aria-label="Recipient's username"
+              aria-describedby="button-addon2"
+              />
+            <button
+              class="btn btn-outline-secondary input"
+              type="button"
+              id="button-addon2"
+              >
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </div>
+        </div>
+        <div class="d-flex justify-content-end align-items-center">
+          <button
+            type="button"
+            class="btn creat mt-3"
+            [routerLink]="['/category/newcategory']"
+            >
+            <i class="fa-solid fa-plus me-3 plus"></i>New category
+          </button>
+        </div>
+      </div>
+    }
+  </div>
+  <!-- nav end -->
+  <!-- new category layout -->
+  <div class="content">
+    <form (ngSubmit)="AddNewCategory()" #addCategory="ngForm">
+      <div
+        class="d-flex justify-content-around align-items-center new-category"
+        >
+        <div
+          class="w-50 d-flex justify-content-around align-items-center imgs-content"
+          >
+          <div class="mb-3 mt-3">
+            <h4>Current Image</h4>
+            <div class="img-div">
+              <img class="current-img" [src]="category.image" alt="" />
+            </div>
+          </div>
+          <div class="mb-3 mt-3">
+            <h4>Updated Image</h4>
+            <ngx-dropzone (change)="onSelect($event)">
+              <ngx-dropzone-label
+                ><i class="fa-solid fa-camera-retro fs-3 camera"></i
+              ></ngx-dropzone-label>
+              @for (f of files; track f) {
+                <ngx-dropzone-image-preview
+                  class="selected-image-container"
+                  ngProjectAs="ngx-dropzone-preview"
+                  [file]="f"
+                  [removable]="true"
+                  (removed)="onRemove(f)"
+                  >
+                </ngx-dropzone-image-preview>
+              }
+            </ngx-dropzone>
+          </div>
+        </div>
+        <div>
+          <div class="mb-3 mt-3">
+            <label>name: </label>
+            <input
+              class="form-control"
+              placeholder="category Name (required)"
+              type="text"
+              [(ngModel)]="category.name"
+              name="name"
+              required
+              minlength="4"
+              #categoryName="ngModel"
+              [ngClass]="{
+                'is-invalid':
+                  (categoryName.touched || categoryName.dirty) &&
+                  categoryName.invalid
+              }"
+              />
+            <span class="invalid-feedback">
+              @if (categoryName.errors?.['required']) {
+                <span
+                  >category name is required
+                </span>
+              }
+              @if (categoryName.errors?.['minlength']) {
+                <span
+                  >category name must be at least 4 characters
+                </span>
+              }
+            </span>
+          </div>
+          <div class="mb-3 mt-3">
+            <label>name_ar:</label>
+            <input
+              class="form-control"
+              placeholder="category Name Ar (required)"
+              type="text"
+              [(ngModel)]="category.name_ar"
+              name="name_ar"
+              required
+              minlength="4"
+              #categoryName_ar="ngModel"
+              [ngClass]="{
+                'is-invalid':
+                  (categoryName_ar.touched || categoryName_ar.dirty) &&
+                  categoryName_ar.invalid
+              }"
+              />
+            <span class="invalid-feedback">
+              @if (categoryName_ar.errors?.['required']) {
+                <span
+                  >category name_ar is required
+                </span>
+              }
+              @if (categoryName_ar.errors?.['minlength']) {
+                <span
+                  >category name_ar must be at least 4 characters
+                </span>
+              }
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex justify-content-center align-items-center">
+        <button
+          type="submit"
+          class="btn creat mt-3 mb-3"
+          [disabled]="addCategory.invalid"
+          >
+          Update Category
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

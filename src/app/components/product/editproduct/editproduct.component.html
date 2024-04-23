@@ -1,0 +1,443 @@
+<!-- nav start -->
+<div class="container h-100">
+  <div
+    class="d-flex justify-content-between"
+    [ngClass]="{
+      'hide-on-small': isSmallScreen,
+      'show-on-small': !isSmallScreen
+    }"
+    >
+    <h3 class="mt-3 all-product" [routerLink]="['/product/product']">
+      All Products
+    </h3>
+    <div class="mt-3 d-flex justify-content-center align-items-center">
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control input"
+          placeholder="search"
+          aria-label="Recipient's username"
+          aria-describedby="button-addon2"
+          />
+        <button
+          class="btn btn-outline-secondary input"
+          type="button"
+          id="button-addon2"
+          >
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </div>
+    </div>
+    <div
+      class="d-flex justify-content-end align-items-center"
+      [routerLink]="['/product/newproduct']"
+      >
+      <button type="button" class="btn creat mt-3">New Product</button>
+    </div>
+  </div>
+  <!-- collaps -->
+  <div
+    [ngClass]="{
+      'hide-on-small2': !isSmallScreen,
+      'show-on-small2': isSmallScreen
+    }"
+    >
+    <div class="mt-3 d-flex justify-content-end align-items-center">
+      <button class="btn creat">
+        <i class="fa-solid fa-bars" (click)="toggleNav()"></i>
+      </button>
+    </div>
+    @if (!flagNav) {
+      <div>
+        <div class="d-flex justify-content-end align-items-center">
+          <h3 class="mt-3 all-product" [routerLink]="['/product/product']">
+            All Products
+          </h3>
+        </div>
+        <div class="d-flex justify-content-end align-items-center">
+          <div class="input-group mb-3">
+            <input
+              type="text"
+              class="form-control input"
+              placeholder="search"
+              aria-label="Recipient's username"
+              aria-describedby="button-addon2"
+              />
+            <button
+              class="btn btn-outline-secondary input"
+              type="button"
+              id="button-addon2"
+              >
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </div>
+        </div>
+        <div
+          class="d-flex justify-content-end align-items-center"
+          [routerLink]="['/product/newproduct']"
+          >
+          <button type="button" class="btn creat mt-3">New Product</button>
+        </div>
+      </div>
+    }
+  </div>
+  <!-- nav end -->
+  <!-- creat product start -->
+  <div class="container mt-4">
+    <!-- form -->
+    <form (ngSubmit)="updateProduct()" #addProduct="ngForm">
+      <!-- form container -->
+      <div
+        class="w-100 container d-flex justify-content-around align-items-center form-content"
+        >
+        <!-- images container -->
+        <div
+          class="w-50 d-flex flex-column justify-content-start align-items-center imges"
+          >
+          <!-- cover -->
+          <div
+            class="d-flex justify-content-center align-items-center cver-content"
+            >
+            <div>
+              <h4>Current cover</h4>
+              <div>
+                <img
+                  class="product-cover img-fluid"
+                  [src]="product.thumbnail"
+                  alt="product cover"
+                  />
+              </div>
+            </div>
+            <div class="mb-3 mt-3 ms-3">
+              <h4>Updated cover</h4>
+              <ngx-dropzone class="cover" (change)="onSelectThumbnail($event)">
+                <ngx-dropzone-label
+                  ><i class="fa-solid fa-camera-retro fs-3 camera"></i
+                ></ngx-dropzone-label>
+                @for (f of file; track f) {
+                  <ngx-dropzone-image-preview
+                    class="selected-image-container img-fluid"
+                    ngProjectAs="ngx-dropzone-preview"
+                    [file]="f"
+                    [removable]="true"
+                    (removed)="onRemove(f)"
+                    >
+                  </ngx-dropzone-image-preview>
+                }
+              </ngx-dropzone>
+            </div>
+          </div>
+          <!-- images 1 -->
+          <div
+            class="w-100 d-flex flex-column ustify-content-center align-items-center img1"
+            >
+            <div>
+              <h4>Curent product Imges</h4>
+              <div
+                class="w-100 d-flex justify-content-around align-items-center loop"
+                >
+                @for (img of product.images; track img) {
+                  <div class="me-2 mb-2">
+                    <img
+                      class="product-imges img-fluid"
+                      [src]="img"
+                      alt="product imges"
+                      />
+                  </div>
+                }
+              </div>
+            </div>
+            <div class="mb-3 mt-3">
+              <h4>updated product Imges</h4>
+              <ngx-dropzone
+                class="product-images"
+                (change)="onSelectImage($event)"
+                >
+                <ngx-dropzone-label
+                  ><i class="fa-solid fa-camera-retro fs-3 camera"></i
+                ></ngx-dropzone-label>
+                @for (f of files; track f) {
+                  <ngx-dropzone-image-preview
+                    class="selected-images-container img-fluid"
+                    ngProjectAs="ngx-dropzone-preview"
+                    [file]="f"
+                    [removable]="true"
+                    (removed)="onRemoveImges(f)"
+                    >
+                  </ngx-dropzone-image-preview>
+                }
+              </ngx-dropzone>
+            </div>
+          </div>
+        </div>
+        <!-- info container -->
+        <div
+          class="w-50 d-flex flex-column justify-content-start align-items-center info"
+          >
+          <!-- name -->
+          <div
+            class="w-100 d-flex justify-content-around align-items-center title"
+            >
+            <div class="mb-3 mt-3">
+              <label class="me-2">title: </label>
+              <input
+                class="form-control"
+                placeholder="Enter Product Name (required)"
+                type="text"
+                [(ngModel)]="product.title"
+                name="title"
+                required
+                minlength="4"
+                #productName="ngModel"
+                [ngClass]="{
+                  'is-invalid':
+                    (productName.touched || productName.dirty) &&
+                    productName.invalid
+                }"
+                />
+              <span class="invalid-feedback">
+                @if (productName.errors?.['required']) {
+                  <span
+                    >product name is required
+                  </span>
+                }
+                @if (productName.errors?.['minlength']) {
+                  <span
+                    >product name must be at least 4 characters
+                  </span>
+                }
+              </span>
+            </div>
+            <div class="mb-3 mt-3">
+              <label class="me-2">title_ar:</label>
+              <input
+                class="form-control"
+                placeholder="Enter Product Name (required)"
+                type="text"
+                [(ngModel)]="product.title_ar"
+                name="title_ar"
+                required
+                minlength="4"
+                #productName="ngModel"
+                [ngClass]="{
+                  'is-invalid':
+                    (productName.touched || productName.dirty) &&
+                    productName.invalid
+                }"
+                />
+              <span class="invalid-feedback">
+                @if (productName.errors?.['required']) {
+                  <span
+                    >product name is required
+                  </span>
+                }
+                @if (productName.errors?.['minlength']) {
+                  <span
+                    >product name must be at least 4 characters
+                  </span>
+                }
+              </span>
+            </div>
+          </div>
+          <!-- deacription -->
+          <div
+            class="w-100 d-flex justify-content-around align-items-center desc"
+            >
+            <div class="mb-3 mt-3">
+              <label class="me-2">description:</label>
+              <input
+                class="form-control"
+                placeholder="Enter Product Name (required)"
+                type="text"
+                [(ngModel)]="product.description"
+                name="description"
+                required
+                minlength="4"
+                #productName="ngModel"
+                [ngClass]="{
+                  'is-invalid':
+                    (productName.touched || productName.dirty) &&
+                    productName.invalid
+                }"
+                />
+              <span class="invalid-feedback">
+                @if (productName.errors?.['required']) {
+                  <span
+                    >product name is required
+                  </span>
+                }
+                @if (productName.errors?.['minlength']) {
+                  <span
+                    >product name must be at least 4 characters
+                  </span>
+                }
+              </span>
+            </div>
+
+            <div class="mb-3 mt-3">
+              <label class="me-2">description_ar:</label>
+              <input
+                class="form-control"
+                placeholder="Enter Product Name (required)"
+                type="text"
+                [(ngModel)]="product.description_ar"
+                name="description_ar"
+                required
+                minlength="4"
+                #productName="ngModel"
+                [ngClass]="{
+                  'is-invalid':
+                    (productName.touched || productName.dirty) &&
+                    productName.invalid
+                }"
+                />
+              <span class="invalid-feedback">
+                @if (productName.errors?.['required']) {
+                  <span
+                    >product name is required
+                  </span>
+                }
+                @if (productName.errors?.['minlength']) {
+                  <span
+                    >product name must be at least 4 characters
+                  </span>
+                }
+              </span>
+            </div>
+          </div>
+          <!-- price&quantity -->
+          <div
+            class="w-100 d-flex justify-content-around align-items-center price"
+            >
+            <div class="mt-3 mb-3">
+              <label class="me-2">Price:</label>
+              <input
+                class="form-control"
+                placeholder="Enter Product price (required)"
+                type="number"
+                [(ngModel)]="product.price"
+                name="price"
+                required
+                #productPrice="ngModel"
+                [ngClass]="{
+                  'is-invalid':
+                    (productPrice.touched || productPrice.dirty) &&
+                    productPrice.invalid
+                }"
+                />
+              <span class="invalid-feedback">
+                @if (productPrice.errors?.['required']) {
+                  <span
+                    >product price is required
+                  </span>
+                }
+              </span>
+            </div>
+            <div class="mt-3 mb-3">
+              <label class="me-2">quantity:</label>
+              <input
+                class="form-control"
+                placeholder="Enter Product quantity (required)"
+                type="number"
+                [(ngModel)]="product.quantity"
+                name="quantity"
+                required
+                #productquantity="ngModel"
+                [ngClass]="{
+                  'is-invalid':
+                    (productquantity.touched || productquantity.dirty) &&
+                    productquantity.invalid
+                }"
+                />
+              <span class="invalid-feedback">
+                @if (productquantity.errors?.['required']) {
+                  <span
+                    >product quantity is required
+                  </span>
+                }
+              </span>
+            </div>
+          </div>
+          <!-- category&subcategory -->
+          <div
+            class="w-100 d-flex justify-content-around align-items-center category"
+            >
+            <div class="mt-3 mb-3">
+              <label class="me-2">Category:</label>
+              <select
+                class="form-control"
+                [(ngModel)]="product.category"
+                name="category"
+                required
+                #productcategory="ngModel"
+                [ngClass]="{
+                  'is-invalid':
+                    (productcategory.touched || productcategory.dirty) &&
+                    productcategory.invalid
+                }"
+                >
+                @for (category of AllCategories; track category) {
+                  <option
+                    [value]="category._id"
+                    >
+                    {{ category.name }}
+                  </option>
+                }
+              </select>
+              <span class="invalid-feedback">
+                @if (productcategory.errors?.['required']) {
+                  <span
+                    >product category is required
+                  </span>
+                }
+              </span>
+            </div>
+
+            <div class="mt-3 mb-3">
+              <label class="me-2">subCategory:</label>
+              <select
+                class="form-control"
+                [(ngModel)]="product.subcategory"
+                name="subcategory"
+                required
+                #productsubcategory="ngModel"
+                [ngClass]="{
+                  'is-invalid':
+                    (productsubcategory.touched || productsubcategory.dirty) &&
+                    productsubcategory.invalid
+                }"
+                >
+                @for (subCategory of AllSubCategories; track subCategory) {
+                  <option
+                    [value]="subCategory._id"
+                    >
+                    {{ subCategory.name }}
+                  </option>
+                }
+              </select>
+              <span class="invalid-feedback">
+                @if (productsubcategory.errors?.['required']) {
+                  <span
+                    >product category is required
+                  </span>
+                }
+              </span>
+            </div>
+          </div>
+        </div>
+        <!-- info container end -->
+      </div>
+      <!-- form container end -->
+      <div class="d-flex justify-content-center align-items-center">
+        <button
+          type="submit"
+          class="btn creat mt-3 mb-3"
+          [disabled]="addProduct.invalid"
+          >
+          Update Product
+        </button>
+      </div>
+    </form>
+  </div>
+  <div class="mt-5 d-flex justify-content-center align-items-center"></div>
+</div>

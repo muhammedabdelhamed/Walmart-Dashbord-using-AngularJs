@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: #1a202c;
+  color: gray;
+}
+
+app-dashboard {
+  width: 100%;
+}
+.bg-dark {
+  background-color: rgb(25, 25, 26) !important;
+  color: white;
+}

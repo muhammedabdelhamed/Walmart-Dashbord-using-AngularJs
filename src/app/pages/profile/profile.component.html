@@ -1,0 +1,121 @@
+<div class="container w-50  h-100">
+  <div class="row align-items-center justify-content-center h-100">
+    <div class="col-12 profile-card p-3 p-5" style="height: fit-content;">
+      <h1 class="h3">
+        Edit profile
+      </h1>
+      <form (ngSubmit)="editAdminName()" class="">
+        <div class="row align-items-center justify-content-center p-2 m-0 w-100">
+          <div class="col-9 p-0 ">
+            <label for="adminName" class="form-label">Full name</label>
+            <input type="text" class="form-control" id="adminName" name="name" [(ngModel)]="userName" [disabled]="!nameEditFlag">
+          </div>
+          <div class="col-3 ">
+            <button type="button" class="btn btn-sm" [ngClass]="{'btn-outline-light' :!nameEditFlag ,'btn-outline-danger' :nameEditFlag }" (click)="editNameFlag()">
+              @if (!nameEditFlag) {
+                <i class="fa-regular fa-pen-to-square"></i>
+              }
+              @if (nameEditFlag) {
+                <i class="fa-solid fa-xmark"></i>
+              }
+            </button>
+            @if (nameEditFlag) {
+              <input type="submit" class="btn btn-success btn-sm" value="save" />
+            }
+
+          </div>
+        </div>
+      </form>
+      <form (ngSubmit)="editAdminEmail()" class="">
+        <div class="row align-items-center justify-content-center p-2 m-0 w-100">
+          <div class="col-9 p-0 ">
+            <label for="adminEmail" class="form-label">Email</label>
+            <input type="email" class="form-control" id="adminEmail" name="email" [(ngModel)]="userEmail" [disabled]="!emailEditFlag">
+          </div>
+          <div class="col-3 ">
+            <button type="button" class="btn btn-sm" [ngClass]="{'btn-outline-light' :!emailEditFlag ,'btn-outline-danger' :emailEditFlag }" (click)="editEmailFlag()">
+              @if (!emailEditFlag) {
+                <i class="fa-regular fa-pen-to-square"></i>
+              }
+              @if (emailEditFlag) {
+                <i class="fa-solid fa-xmark"></i>
+              }
+            </button>
+            @if (emailEditFlag) {
+              <input type="submit" class="btn btn-success btn-sm" value="save" />
+            }
+          </div>
+        </div>
+      </form>
+      <form (ngSubmit)="checkCurrnetPassword()" class="">
+        <div class="row align-items-center justify-content-center p-2 m-0 w-100">
+          <div class="col-9 p-0 ">
+            <label for="adminPassword" class="form-label">Currnet password</label>
+            <input type="password" class="form-control" name="password" id="adminPassword" [disabled]="!passwordEditFlag" [(ngModel)]="userPassword">
+          </div>
+          <div class="col-3 ">
+            <button type="button" class="btn btn-sm" [ngClass]="{'btn-outline-light' :!passwordEditFlag ,'btn-outline-danger' :passwordEditFlag }" (click)="editPasswordFlag()">
+              @if (!passwordEditFlag) {
+                <i class="fa-regular fa-pen-to-square"></i>
+              }
+              @if (passwordEditFlag) {
+                <i class="fa-solid fa-xmark"></i>
+              }
+            </button>
+            @if (passwordEditFlag) {
+              <button type="button" (click)="checkCurrnetPassword()" class="passCheckBtn btn btn-sm btn-warning p-1" [disabled]="passwordAuthFlag">
+                @if (passwordCheckingFlag) {
+                  <div class="spinner-border" role="status">
+                  </div>
+                }
+                @if (!passwordCheckingFlag && !passwordAuthFlag) {
+                  procced
+                }
+                @if (!passwordCheckingFlag && passwordAuthFlag) {
+                  <i class="fa-solid fa-check"></i>
+                }
+              </button>
+            }
+          </div>
+        </div>
+      </form>
+      @if (passwordAuthFlag) {
+        <form (ngSubmit)="editAdminPassword()" class="">
+          <div class="row align-items-center justify-content-center p-2 m-0 w-100">
+            <div class="col-9 p-0 ">
+              <label for="adminNewPassword" class="form-label">New password</label>
+              <input type="password" class="form-control mb-2" name="newPassword" id="adminNewPassword"  [(ngModel)]="user.password">
+              <input type="password" class="form-control" name="repeatPassword" id="repeatPassword"  [(ngModel)]="repeatPassword">
+            </div>
+            <div class="col-3 ">
+              <input type="submit" class="btn btn-success btn-sm"  value="save" />
+            </div>
+          </div>
+        </form>
+      }
+
+      <!-- <div class="row align-items-center justify-content-center g-0 " >
+
+      <form action="">
+        <div class="col-9">
+          <label for="adminEmail" class="form-label">Email</label>
+          <input type="email" class="form-control" id="adminEmail" name="email" [(ngModel)]="userEmail">
+        </div>
+        <div class="col-3">
+
+        </div>
+      </form>
+      <form action="">
+        <div class="col-9">
+          <label for="adminPassword" class="form-label">Password</label>
+          <input type="password" class="form-control" id="adminPassword">
+        </div>
+        <div class="col-3">
+
+        </div>
+      </form>
+    </div> -->
+
+  </div>
+</div>
+</div>

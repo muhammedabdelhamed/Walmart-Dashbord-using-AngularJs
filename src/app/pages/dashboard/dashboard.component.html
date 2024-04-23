@@ -1,0 +1,107 @@
+<div class="d-flex flex-column w-100">
+  <!-- Four small cards -->
+  <div class="smallCards d-flex mt-4 justify-content-evenly flex-wrap w-100">
+    <!-- users card -->
+    <div class="smallCard rounded-3 bg-dark p-3 mb-2 d-flex align-items-center">
+      <div class="circle blueCircle rounded-circle col-6 fs-3 mx-2 text-center">
+        <i class="fa-solid fa-users py-3 px-1"></i>
+      </div>
+      <div class="col-6 mx-2">
+        <h4>{{ userCounter }}</h4>
+        <p>Users Count</p>
+      </div>
+    </div>
+    <!-- products card -->
+    <div class="smallCard rounded-3 bg-dark p-3 mb-2 d-flex align-items-center">
+      <div
+        class="circle greenCircle rounded-circle col-6 fs-3 mx-2 text-center"
+        >
+        <i class="fa-solid fa-bag-shopping py-3 px-1"></i>
+      </div>
+      <div class="col-6 mx-2">
+        <h3>{{ productCounter }}</h3>
+        <p>Products</p>
+      </div>
+    </div>
+    <!-- orders/day card -->
+    <div class="smallCard rounded-3 bg-dark p-3 mb-2 d-flex align-items-center">
+      <div class="circle redCircle rounded-circle col-6 fs-3 mx-2 text-center">
+        <i class="fa-solid fa-cart-flatbed py-3 px-1"></i>
+      </div>
+      <div class="col-6 mx-2">
+        <h3>{{ orderCounter }}</h3>
+        <p>Orders/ Month</p>
+      </div>
+    </div>
+    <!-- income/month card -->
+    <div class="smallCard rounded-3 bg-dark p-3 mb-2 d-flex align-items-center">
+      <div
+        class="circle yellowCircle rounded-circle col-6 fs-3 mx-2 text-center"
+        >
+        <i class="fa-solid fa-hand-holding-dollar py-3 px-1"></i>
+      </div>
+      <div class="col-6 mx-2">
+        <h3>{{ orderCounter }}</h3>
+        <p>Total orders</p>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex flex-md-row flex-column flex-wrap ">
+    <div class="leftSection d-flex flex-column flex-wrap mx-4 col-lg-7 col-11">
+      <div
+        class="d-flex justify-content-between flex-wrap mt-3 col-12 rounded-3"
+        >
+        <div class="align-items-center col-md-6 col-12 mb-3 rounded-3 p-2 bg-dark">
+          <app-area-chart></app-area-chart>
+        </div>
+        <div class="align-items-center col-md-6 col-12 mb-3 rounded-3 p-2 bg-dark">
+          <app-area-last-chart></app-area-last-chart>
+        </div>
+      </div>
+      <div class=" p-4 col-12 rounded-3 bg-dark text-white">
+        <h6>Top Selling Products</h6>
+        <table class="table table-dark table-striped mt-4">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">Price</th>
+              <th scope="col">Total Order</th>
+              <th scope="col">Total Sales</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (product of topTen; track product; let i = $index) {
+              <tr>
+                <th scope="row">{{ i + 1 }}</th>
+                <td>
+                  <img
+                    src="{{ product.images[0] }}"
+                    alt=""
+                    width="30"
+                    height="30"
+                    class="rounded-circle me-2"
+                    />
+                  {{ product.title }}
+                </td>
+                <td>{{ product.price }} <small>E£</small></td>
+                <td>{{ product.boughtUnits }} <small>piece</small></td>
+                <td class="">
+                  {{ product.totalSellingPrice }} <small>E£</small>
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+      <div class="col-12"></div>
+    </div>
+    <div class="rightSection d-flex flex-column col-lg-4 col-11">
+      <div
+        class="d-flex justify-content-between flex-wrap ms-3 text-white mt-3 col-12 rounded-3 bg-dark px-3 fs-4"
+        >
+        <app-bar-chart></app-bar-chart>
+      </div>
+    </div>
+  </div>
+</div>

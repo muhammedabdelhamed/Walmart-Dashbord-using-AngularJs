@@ -1,0 +1,17 @@
+<div class="row m-0 p-0 pt-3 justify-content-center align-items-top ">
+  <div class="col-6 p-3">
+    <h6 class="h5" style="color: #fff">
+      Orders
+    </h6>
+  </div>
+  <div class="col-6 p-3 text-end">
+    <button type="button" style="width: 60px; height: 60px; border-radius: 50%; text-align: center; background-color:#2FE5A755; color: #fff; border-width: 0;">
+      Filter
+    </button>
+  </div>
+  @for (order of allOrders; track order) {
+    <div class="col-12 my-3 p-2">
+      <app-order-card [order]="order"></app-order-card>
+    </div>
+  }
+</div>

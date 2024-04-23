@@ -1,0 +1,78 @@
+<div class="container col-6 my-5 rounded-3 border bg-dark">
+  <form
+    class="container-fluid m-0 p-0"
+    (ngSubmit)="signUpFunc()"
+    [formGroup]="userRegisterForm"
+  >
+    <div
+      class="row justify-content-center align-items-center p-0 m-0 w-100 g-2"
+      style="color: #fff"
+    >
+    <div class="border-bottom pb-2 mb-2 w-75">
+
+        <div class="text-center fs-1 mt-4" style="color: #2fe5a7"><i class="fa-solid fa-user-plus"></i></div>
+          <div class="col-12 p-0" style="color: #2fe5a7">
+            <h2 class="h2 text-center">Add New Admin</h2>
+          </div>
+    </div>
+      <!-- cover -->
+      <!-- <div class="w-100 d-flex justify-content-around align-items-center">
+        <div class="mb-3 mt-3">
+          <ngx-dropzone class="cover" (change)="onSelectThumbnail($event)">
+            <ngx-dropzone-label
+              ><i class="fa-solid fa-camera-retro fs-3 camera"></i
+            ></ngx-dropzone-label>
+            <ngx-dropzone-image-preview
+              class="selected-image-container img-fluid"
+              ngProjectAs="ngx-dropzone-preview"
+              *ngFor="let f of file"
+              [file]="f"
+              [removable]="true"
+              (removed)="onRemove(f)"
+            >
+            </ngx-dropzone-image-preview>
+          </ngx-dropzone>
+        </div>
+      </div> -->
+
+      <div class="col-12">
+        <div class="mb-3">
+          <label for="userName" class="form-label">Name</label>
+          <input
+            type="text"
+            class="form-control loginInput"
+            id="userName"
+            placeholder="Name"
+            name="name"
+            formControlName="name"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="userEmail" class="form-label">Email address</label>
+          <input
+            type="email"
+            class="form-control loginInput"
+            id="userEmail"
+            placeholder="example@mail.com"
+            name="email"
+            formControlName="email"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="userPassword" class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control loginInput"
+            id="userPassword"
+            placeholder="******"
+            name="password"
+            formControlName="password"
+          />
+        </div>
+      </div>
+      <div class="col-12 my-4">
+        <input type="submit" value="Register" class="loginInput" />
+      </div>
+    </div>
+  </form>
+</div>

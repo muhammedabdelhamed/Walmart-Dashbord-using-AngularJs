@@ -1,0 +1,181 @@
+.orSpan{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50% , -50%);
+  background-color: #19191A;
+  height: 25px;
+  width: 40px;
+  text-align: center;
+}
+::placeholder{
+  color: #fff;
+}
+
+::-moz-placeholder{
+  color: #fff;
+
+}
+::-ms-input-placeholder{
+  color: #fff;
+}
+
+
+.loginInput{
+  background-color: #1A202C;
+  color: #fff;
+  border: 0px solid transparent;
+  border-radius: 10px;
+  width: 100%;
+  display: block;
+  height: 45px;
+  line-height: 45px;
+  padding-left: 5%;
+  transition: all 0.1s ease-in-out;
+}
+
+button:hover{
+  background-color: #37445e;
+}
+
+.authChangeBtn{
+  background-color: transparent;
+  border: 0px solid transparent;
+  display: inline-block;
+  color: #fff;
+  text-decoration: none;
+}
+.authChangeBtn:hover{
+  background-color: transparent;
+  text-decoration: underline;
+
+}
+input[type = submit]{
+  background-color: #605CFF;
+  transition: all 0.1s ease-in-out;
+
+}
+input[type = submit]:hover{
+  background-color: rgba(111, 109, 252, 0.671);
+}
+
+// ============= 
+:host {
+  display: block;
+  width: 100%;
+}
+.input {
+  background-color: #364153;
+  color: white;
+  border: none;
+}
+.creat {
+  background-color: #2fe5a7;
+  height: 40px;
+}
+.creat i {
+  color: black;
+}
+.container {
+  background-color: #1a202c;
+  color: white;
+}
+input,
+select,
+select:focus,
+input:focus {
+  background-color: #1a202c;
+  color: white;
+}
+.form-content {
+  background-color: #19191a;
+}
+.cover {
+  width: 150px;
+  height: 150px;
+  background-color: #1a202c;
+}
+.product-images {
+  min-width: 150px;
+  min-height: 150px;
+  background-color: #1a202c;
+}
+.selected-image-container {
+  width: 110px;
+  height: 110px;
+}
+::ng-deep .selected-image-container img {
+  width: 110px;
+  height: 110px;
+}
+.selected-images-container {
+  width: 90px;
+  height: 90px;
+}
+::ng-deep .selected-images-container img {
+  width: 90px;
+  height: 90px;
+}
+.camera {
+  color: white;
+}
+.all-product {
+  cursor: pointer;
+}
+//===========< media query >=======================
+//===========< nav media >==========================
+@media only screen and (max-width: 938px) {
+  .hide-on-small {
+    display: none !important;
+  }
+
+  .show-on-small {
+    display: block !important;
+  }
+}
+
+@media only screen and (min-width: 938px) {
+  .hide-on-small2 {
+    display: none !important;
+  }
+
+  .show-on-small2 {
+    display: block !important;
+  }
+}
+//============< form media >=============================
+@media only screen and (max-width: 1227px) {
+  .form-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .imges,
+  .info {
+    width: 100% !important;
+  }
+}
+@media only screen and (max-width: 779px) {
+  .form-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .img1,
+  .img2,
+  .title,
+  .desc,
+  .price,
+  .category {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .imges,
+  .info {
+    width: 100% !important;
+  }
+}

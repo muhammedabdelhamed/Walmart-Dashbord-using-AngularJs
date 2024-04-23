@@ -1,0 +1,127 @@
+:host {
+  display: block;
+  width: 100%;
+}
+.input {
+  background-color: #364153;
+  color: white;
+  border: none;
+}
+.creat {
+  background-color: #2fe5a7;
+  height: 40px;
+}
+.creat i {
+  color: black;
+}
+.container {
+  background-color: #1a202c;
+  color: white;
+}
+input,
+select,
+select:focus,
+input:focus {
+  background-color: #1a202c;
+  color: white;
+}
+.form-content {
+  background-color: #19191a;
+}
+.cover {
+  width: 150px;
+  height: 150px;
+  background-color: #1a202c;
+}
+.product-images {
+  min-width: 150px;
+  min-height: 150px;
+  background-color: #1a202c;
+}
+.selected-image-container {
+  width: 110px;
+  height: 110px;
+}
+::ng-deep .selected-image-container img {
+  width: 110px;
+  height: 110px;
+}
+.selected-images-container {
+  width: 90px;
+  height: 90px;
+}
+::ng-deep .selected-images-container img {
+  width: 90px;
+  height: 90px;
+}
+.camera {
+  color: white;
+}
+.all-product {
+  cursor: pointer;
+}
+//===========< media query >=======================
+//===========< nav media >==========================
+@media only screen and (max-width: 938px) {
+  .hide-on-small {
+    display: none !important;
+  }
+
+  .show-on-small {
+    display: block !important;
+  }
+}
+
+@media only screen and (min-width: 938px) {
+  .hide-on-small2 {
+    display: none !important;
+  }
+
+  .show-on-small2 {
+    display: block !important;
+  }
+}
+//============< form media >=============================
+@media only screen and (max-width: 1227px) {
+  .form-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .imges,
+  .info {
+    width: 100% !important;
+  }
+}
+@media only screen and (max-width: 779px) {
+  .form-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .img1,
+  .img2,
+  .title,
+  .desc,
+  .price,
+  .category {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .imges,
+  .info {
+    width: 100% !important;
+  }
+  // ::ng-deep .selected-images-container {
+  //   width: 100% !important;
+  //   height: auto !important;
+  //   display: flex;
+  //   flex-direction: column;
+  //   justify-content: center;
+  //   align-items: center;
+  // }
+}

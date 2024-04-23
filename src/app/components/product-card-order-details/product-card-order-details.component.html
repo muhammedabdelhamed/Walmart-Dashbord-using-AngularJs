@@ -1,0 +1,29 @@
+<div class="row m-0 p-0 justify-content-end align-items-center w-100 prd-order-card " >
+    <div class="col-2 h-100 d-flex align-items-center">
+        <img [src]="prd.thumbnail" alt="" style="width: 100px; max-height: 100px; margin-inline: auto;">
+    </div>
+    <div class="col-3 p-0 m-0 h-100  d-flex align-items-center">
+        <p >
+            {{prd.title}}({{prd.quantity}} items)
+        </p>
+    </div>
+    <div class="col-2 h-100  d-flex align-items-center p-0 m-0 ">
+        <a routerLink="/product/detailproduct/{{prd._id}}" class="btn " >
+            View details 
+        </a>
+    </div>
+    <div class="col-3 p-0 m-0 h-100  d-flex align-items-center">
+        <p class="">
+            <i class="fa-solid fa-money-bill"></i> Price: {{prd.price|currency:'EGP ':'code'}}
+        </p>
+    </div>
+    <div class="col-2 p-0 m-0 h-100  d-flex align-items-center">
+        <p class="">
+            rating : {{prd.rating}} 
+        </p>
+    </div>
+
+
+
+    
+</div>

@@ -1,0 +1,89 @@
+<div
+  class="row justify-content-between align-items-center p-0 m-0 h-100"
+  style="width: 100%; background-color: #1a202c">
+  <div
+    class="col-12 col-sm-12 col-md-5 col-lg-3 h-100 m-0 p-0"
+    style="background: linear-gradient(0deg, #19191a 0%, #19191a 100%), #364153">
+    <div class="col-12 h-100 d-flex align-items-center p-0 px-3">
+      <!-- <router-outlet   ></router-outlet> -->
+      <form
+        class="container-fluid m-0 p-0 vh-100"
+        (ngSubmit)="loginFunc()"
+        [formGroup]="userLoginForm">
+        <div
+          class="row justify-content-center align-items-center p-0 m-0 w-100 g-2"
+          style="color: #fff">
+          <div class="col-12 p-0">
+            <h2 class="h2 text-center">Walmart Dashboard</h2>
+            <h6 class="h6 text-center">Log in</h6>
+          </div>
+          <!-- <div class="col-6">
+            <label for class="form-label">
+              <img src="../../../../assets/googleLogo.svg" alt />
+            </label>
+            <button class="loginInput">Google</button>
+          </div>
+          <div class="col-6">
+            <label for class="form-label">
+              <img src="../../../../assets/fbLogo.svg" alt />
+            </label>
+            <button class="loginInput">Facebook</button>
+          </div> -->
+          <!-- <div class="col-12" style="position: relative">
+            <hr />
+            <span class="orSpan"> Or </span>
+          </div> -->
+          <div class="col-12">
+            <div class="mb-3">
+              <label for="userEmail" class="form-label">Email address</label>
+              <input
+                type="email"
+                class="form-control loginInput"
+                id="userEmail"
+                placeholder="example@mail.com"
+                name="email"
+                formControlName="email" />
+            </div>
+            <div class="mb-3">
+              <label for="userPassword" class="form-label">Password</label>
+              <input
+                type="password"
+                class="form-control loginInput"
+                id="userPassword"
+                placeholder="******"
+                name="password"
+                formControlName="password" />
+            </div>
+          </div>
+          <div class="col-6">
+            <input
+              class="form-check-input border border-2"
+              type="checkbox"
+              (change)="logCheck($event)"
+              id="rememberMe" />
+            <label class="form-check-label" for="rememberMe">
+              Remember me
+            </label>
+          </div>
+          <div class="col-6 text-end">
+            <small>
+              <a routerLink="/resetPassword"
+                style="color: #605cff; text-decoration: none">
+                Forgot Your Password
+              </a>
+            </small>
+          </div>
+          <div class="col-12 my-4">
+            <input type="submit" value="Log in" class="loginInput" />
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="col-12 col-sm-12 col-md-7 col-lg-9 align-items-center">
+    <img
+      src="../../../../assets/Illustration.svg"
+      alt
+      class="img-fluid d-block mx-auto" />
+  </div>
+</div>

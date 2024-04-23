@@ -1,0 +1,88 @@
+<div
+  class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark border-light h-100 overflow-auto"
+  style="width: 280px"
+>
+  <!-- Personal img and title -->
+  <!-- <div class="text-center mt-2 mb-4 text-secondary">
+    <img
+      src="https://github.com/mdo.png"
+      alt=""
+      width="90"
+      height="90"
+      class="rounded-4 me-2 mb-2"
+    />
+    <h4>Edward Sameh</h4>
+    <p>CEO</p>
+  </div> -->
+  <ul class="nav nav-pills flex-column mb-auto fw-semibold text-light">
+    <!-- Dashboard -->
+    <li>
+      <a routerLink="/" class="nav-link" routerLinkActive="activeLink" [routerLinkActiveOptions]="{exact: true}">
+        <i class="fa-solid fa-chart-pie"></i>
+        <span class="ms-3">Dashboard</span>
+      </a>
+    </li>
+    <!-- Profile -->
+    <li>
+      <a routerLink="/profile" class="nav-link" routerLinkActive="activeLink">
+        <i class="fa-solid fa-user"></i>
+        <span class="ms-3">Profile</span>
+      </a>
+    </li>
+    <!-- Add Admin -->
+    <li>
+      <a routerLink="/register" class="nav-link" routerLinkActive="activeLink">
+        <i class="fa-solid fa-user-plus"></i>
+        <span class="ms-3">Add Admin</span>
+      </a>
+    </li>
+    <!-- Orders -->
+    <li>
+      <a routerLink="/orders" class="nav-link" routerLinkActive="activeLink">
+        <i class="fa-solid fa-cart-flatbed"></i>
+        <span class="ms-3">Manage Orders</span>
+      </a>
+    </li>
+    <!-- Categories -->
+    <li>
+      <a routerLink="/category/category" class="nav-link" routerLinkActive="activeLink">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="bi bi-grid-fill"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zm8 0A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm-8 8A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm8 0A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3z"
+          />
+        </svg>
+        <span class="ms-3">Manage Categories</span>
+      </a>
+    </li>
+    <!-- SubCategories -->
+    <li>
+      <a routerLink="/subcategory/subcategory" class="nav-link" routerLinkActive="activeLink">
+        <i class="fa-solid fa-network-wired"></i>
+        <span class="ms-3">Manage SubCategories</span>
+      </a>
+    </li>
+    <!-- Products -->
+    <li>
+      <a routerLink="/product/product" class="nav-link" routerLinkActive="activeLink">
+        <i class="fa-solid fa-bag-shopping"></i>
+        <span class="ms-3">Manage Products</span>
+      </a>
+    </li>
+  </ul>
+  <hr />
+  <div class="text-center" (click)="signOut()">
+    <a routerLink="/" class="link-underline link-underline-opacity-0 text-danger fw-semibold">
+      <span class="me-3">Sign Out</span>
+      <i class="fa-solid fa-arrow-right-from-bracket"></i>
+    </a>
+  </div>
+</div>
+
+<!-- =========================================================================== -->

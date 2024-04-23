@@ -1,0 +1,142 @@
+:host {
+  display: block;
+  width: 100%;
+}
+.container {
+  background-color: #1a202c;
+  color: white;
+}
+.creat {
+  background-color: #2fe5a7;
+  height: 40px;
+}
+.creat i {
+  color: black;
+}
+.plus {
+  color: black;
+}
+.input {
+  background-color: #364153;
+  color: white;
+  border: none;
+}
+.product {
+  background-color: #19191a;
+}
+.title-p {
+  width: 170px;
+}
+i {
+  color: #2fe5a7;
+}
+.trach {
+  color: #ff69b4;
+}
+.img {
+  width: 80px;
+  height: 80px;
+  margin: 10px;
+}
+.pencil-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #2fe5a843;
+}
+.trach-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #ff69b43e;
+}
+.all-product,
+.review,
+.details,
+.icon,
+.icon2 {
+  cursor: pointer;
+}
+.Next {
+  background-color: #ff69b43e;
+  border: none;
+  color: #ff69b4;
+}
+.Previous {
+  background-color: #2fe5a843;
+  border: none;
+  color: #2fe5a7;
+}
+//===========< media query >=======================
+//===========< nav media >==========================
+@media only screen and (max-width: 938px) {
+  .hide-on-small {
+    display: none !important;
+  }
+
+  .show-on-small {
+    display: block !important;
+  }
+}
+
+@media only screen and (min-width: 938px) {
+  .hide-on-small2 {
+    display: none !important;
+  }
+
+  .show-on-small2 {
+    display: block !important;
+  }
+}
+//===========< product media >======================
+@media only screen and (max-width: 1141px) {
+  .info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+  }
+}
+@media only screen and (max-width: 953px) {
+  .edit-delet {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+}
+@media only screen and (max-width: 840px) {
+  .image-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+}
+@media only screen and (max-width: 530px) {
+  .edit-delet {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+}

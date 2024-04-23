@@ -1,0 +1,29 @@
+<div class="row m-0 p-0 justify-content-end align-items-center w-100 order-card " >
+    <div class="col-4 p-0 m-0 h-100  d-flex align-items-center">
+        <p >
+            {{order.userId.name}}({{order.items.length}} items)
+        </p>
+    </div>
+    <div class="col-2 h-100  d-flex align-items-center p-0 m-0 ">
+        <a [routerLink]="order._id" class="btn " >
+            View details 
+        </a>
+    </div>
+    <div class="col-3 p-0 m-0 h-100  d-flex align-items-center">
+        <p class="">
+            <i class="fa-solid fa-calendar-days" ></i> Status: {{order.status}}
+        </p>
+    </div>
+    <div class="col-3 p-0 m-0 h-100  d-flex align-items-center">
+        <p class="">
+            <i class="fa-solid fa-calendar-days" ></i> total price: {{order.amount}}
+            <span >
+                Posted on: {{postDate}}
+            </span>
+        </p>
+    </div>
+
+
+
+    
+</div>
